@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "List";
+}
+
+    <div class="text-center">
+        <pre><h1><font style="font-weight: bold;" size="8" color="powerblue">List of Books</font><font size="4"><span style="float:right"><form asp-controller="Home" asp-action="SearchCategory"><p>Enter Category: <input type="text" name="SearchString"><input type="submit" value="search" /></p></form></span></font></h1></pre>
+        
+
+    </div>
+
+<div class="text-center">
+    <p class="display-4">
+        <span style="float:left">Title</a></span>
+        <span style="float:right">Like</span>
+    </p>
+
+</div>
+
+
+<pre>
+
+
+
+
+</pre>
+<!-- <p>ID   Title       Author      Like        Text</p>-->
+@foreach (var element in Model)
+{
+
+
+    <div class="text-center">
+        <pre>
+    <span style="float:left"><a href='@Url.Action("Book", "Home", new { id = element.ID})'> @element.title</a></span>
+    <span style="float:right">@element.like</span>
+        </pre>
+
+    </div>
+
+
+
+}
+
+<!-- <p>Html.DisplayFor(m => element.ID)</p>-->

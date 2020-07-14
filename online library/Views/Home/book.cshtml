@@ -1,0 +1,140 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using online_library.Models
+@model online_library.Models.Book
+<style>
+    .button {
+        border: none;
+        color: white;
+        padding: 5px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+    }
+
+    .button1 {
+        background-color: cornflowerblue;
+    }
+</style>
+
+<style>
+    #container {
+        position: relative;
+        font-family: Arial;
+    }
+
+    /* Fake image */
+    .fakeimg {
+        width: 90%;
+        padding: 10px;
+    }
+
+    /* Add a card effect for articles */
+    .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+        width: 60%;
+        position: center;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    div > img {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        border: 1px solid red;
+    }
+
+    h2 {
+    }
+
+    img.profile {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        padding-top: 7px;
+        border: 1px solid blue;
+    }
+
+    /*
+        #text-block {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: black;
+            color: white;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+            */
+</style>
+
+<script>
+    function like() {
+        location.href = '@Url.Action("Like", "Home",new { id = Model.ID})'
+       
+
+
+    }
+</script>
+
+<div class="card">
+
+
+
+    <p>
+        Title : @Model.title
+    </p>
+    <p>
+        Author : @Model.author
+    </p>
+    <p>
+        Like : @Model.like
+        <input type="button"
+               class="button button1"
+               value="Like"
+               onclick="like()" />
+        <!--onclick="location.href = '@Url.Action("Like", "Home",new { id = Model.ID})'"/>-->
+    </p>
+    <p>
+        Category : @Model.category
+    </p>
+
+
+    <!-- <h2>
+            <a href="/profile">
+                <img class="profile" src=post.PostAuthor.UserProfile.ProfilePictureURL alt='img'>
+            </a>
+            post.PostAuthor.FirstName post.PostAuthor.LastName
+        </h2>
+        <p>
+            <a href="/map">
+                <span class="glyphicon glyphicon-map-marker"></span>
+            </a>
+            post.Location.City, post.Location.Country
+        </p>
+    -->
+    <!--
+        <form class="w3-container w3-card-4 w3-light-grey">
+            <input class="w3-input w3-border w3-round-xxlarge" name="commentBox" type="text" placeholder="comment">
+        </form>
+    -->
+</div>
+<p>
+    Below is the content of the book:
+</p>
+<div class="card">
+    @Model.text
+</div>

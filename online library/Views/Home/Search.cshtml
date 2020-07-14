@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using online_library.Models
+<div class="text-center">
+    <h1><font size="8" color="black">Search Result</font></h1>
+
+
+</div>
+
+<div class="text-center">
+    <p></p>
+    <p class="display-4">
+        <span style="float:left">Title</a></span>
+        Category
+        <span style="float:right">Like</span>
+    </p>
+
+</div>
+
+@if (Model == null)
+{
+    <p>
+        Sorry, there is no match for your desired category.
+    </p>
+}
+else
+{
+
+    @foreach (var element in Model)
+    {
+        <div class="text-center">
+            <p>
+                <span style="float:left"><a href='@Url.Action("Book", "Home", new { id = element.ID})'> @element.title</a></span>
+                @element.category
+                <span style="float:right">@element.like</span>
+            </p>
+
+        </div>
+
+
+
+    }
+}
+<!-- <p>ID   Title       Author      Like        Text</p>-->
+<!-- <p>Html.DisplayFor(m => element.ID)</p>-->

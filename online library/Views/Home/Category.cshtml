@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Category";
+}
+
+<div class="text-center">
+    <h1><font style="font-weight: bold;" size="8" color="tomato" >All categories of our books</font></h1>
+
+
+</div>
+
+<p class="display-4">
+    Category:
+</p>
+
+@foreach (var element in Model)
+{
+
+
+        <li>
+            <a href='@Url.Action("SearchCategory", "Home", new {searchString = element })'> @element</a>
+        </li>
+
+
+
+
+
+}
+<!-- <p>ID   Title       Author      Like        Text</p>-->
